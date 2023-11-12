@@ -11,7 +11,7 @@ namespace AviaApp.Utils
         public static void OnFormClosing(Form form)
         {
             form.Dispose();
-            //Application.Exit();
+            Application.ExitThread();
         }
     }
 }

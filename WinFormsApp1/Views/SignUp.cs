@@ -25,9 +25,8 @@ namespace AviaApp.Views
 
         private void signUpButton_Click(object sender, EventArgs e)
         {
-            LoginForm login = new LoginForm();
-            login.Show();
-            this.Close();
+            new LoginForm().Show();
+            this.Dispose();
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)

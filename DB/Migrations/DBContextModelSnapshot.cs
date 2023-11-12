@@ -27,6 +27,7 @@ namespace DB.Migrations
 
                     b.Property<string>("dpi")
                         .IsRequired()
+                        .HasMaxLength(13)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("name")
@@ -38,6 +39,9 @@ namespace DB.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("id");
+
+                    b.HasIndex("dpi")
+                        .IsUnique();
 
                     b.ToTable("user", (string)null);
                 });

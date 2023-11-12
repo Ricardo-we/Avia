@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DB.Migrations
 {
     [DbContext(typeof(DBContext))]
-    [Migration("20231112155555_initial")]
-    partial class initial
+    [Migration("20231112203421_users")]
+    partial class users
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -30,6 +30,7 @@ namespace DB.Migrations
 
                     b.Property<string>("dpi")
                         .IsRequired()
+                        .HasMaxLength(13)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("name")
@@ -41,6 +42,9 @@ namespace DB.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("id");
+
+                    b.HasIndex("dpi")
+                        .IsUnique();
 
                     b.ToTable("user", (string)null);
                 });

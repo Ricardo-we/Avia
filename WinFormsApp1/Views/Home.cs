@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AviaApp.Utils;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,5 +17,11 @@ namespace AviaApp.Views
         {
             InitializeComponent();
         }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            FormUtils.OnFormClosing(this);
+        }
+
     }
 }

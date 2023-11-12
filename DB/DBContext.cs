@@ -16,7 +16,7 @@ namespace Avia.DB
         {
             var folder = Environment.SpecialFolder.LocalApplicationData;
             var path = Environment.GetFolderPath(folder);
-            DbPath = Path.Join(path, "avia.db");
+            DbPath = Path.Join(path, "aviadb.db");
       
         }
 
@@ -25,7 +25,8 @@ namespace Avia.DB
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<User>().ToTable("user");
+
+            modelBuilder.Entity<User>().ToTable("user").HasIndex(u => u.dpi).IsUnique(true);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options) =>

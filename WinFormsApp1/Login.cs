@@ -17,10 +17,8 @@ namespace WinFormsApp1
 
         private void signUpButton_Click_1(object sender, EventArgs e)
         {
-            SignUp signUp = new SignUp();
-            signUp.Show();
-            this.Close();
-            // this.Hide();
+            new SignUp().Show();
+            this.Dispose();
         }
 
 
@@ -37,7 +35,8 @@ namespace WinFormsApp1
                 var user = dbContext.Users
                     .Where((User user) => user.dpi == dpi.Text && user.password == password.Text)
                     .First();
-                this.Close();
+
+                this.Dispose();
                 new Home().Show();
             }
             catch (Exception ex)
