@@ -1,5 +1,9 @@
+using Avia.DB;
 using AviaApp.Utils;
 using AviaApp.Views;
+using DB;
+using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
 
 namespace WinFormsApp1
 {
@@ -27,7 +31,17 @@ namespace WinFormsApp1
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                DBContext dbContext = new DBContext();
+                var user = dbContext.Users.Where((User user) => user.dpi == dpi.Text && user.password == password.Text).First();
+                this.Close();
+                new SignUp().Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("El usuario ingresado no existe o algún dato es inválido");
+            }
         }
     }
 }

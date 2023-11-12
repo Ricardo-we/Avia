@@ -1,5 +1,10 @@
+using Avia.DB;
+using Microsoft.Extensions.DependencyInjection;
+using System.Windows.Forms;
+
 namespace WinFormsApp1
 {
+
     internal static class Program
     {
         /// <summary>

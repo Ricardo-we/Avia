@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AviaApp", "WinFormsApp1\AviaApp.csproj", "{B58B3EBF-2DD9-4257-9A2F-57E95BB77D38}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AviaApp", "WinFormsApp1\AviaApp.csproj", "{B58B3EBF-2DD9-4257-9A2F-57E95BB77D38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB", "DB\DB.csproj", "{682F7F69-2D3B-486B-8715-4B6E831F5B63}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{B58B3EBF-2DD9-4257-9A2F-57E95BB77D38}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B58B3EBF-2DD9-4257-9A2F-57E95BB77D38}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B58B3EBF-2DD9-4257-9A2F-57E95BB77D38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{682F7F69-2D3B-486B-8715-4B6E831F5B63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{682F7F69-2D3B-486B-8715-4B6E831F5B63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{682F7F69-2D3B-486B-8715-4B6E831F5B63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{682F7F69-2D3B-486B-8715-4B6E831F5B63}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

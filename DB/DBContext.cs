@@ -1,25 +1,23 @@
 ﻿using DB;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace ExamenFinal.DB
+namespace Avia.DB
 {
     public class DBContext : DbContext
     {
         public String DbPath { get; set; }
 
-        public DBContext(DbContextOptions<DBContext> options) : base(options)
+        public DBContext() : base(new DbContextOptions<DBContext> {  })
         {
             var folder = Environment.SpecialFolder.LocalApplicationData;
             var path = Environment.GetFolderPath(folder);
             DbPath = Path.Join(path, "avia.db");
-            if(!File.Exists(DbPath))
-            {
-                File.Create(DbPath).Close();
-            }
+      
         }
 
         public DbSet<User> Users { get; set; }
@@ -31,6 +29,7 @@ namespace ExamenFinal.DB
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options) =>
-            options.UseSqlite($"Data Source={DbPath}");
+            options.UseSqlite(@$"Data Source={DbPath}");
+
     }
 }
