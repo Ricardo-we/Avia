@@ -34,9 +34,11 @@ namespace WinFormsApp1
             try
             {
                 DBContext dbContext = new DBContext();
-                var user = dbContext.Users.Where((User user) => user.dpi == dpi.Text && user.password == password.Text).First();
+                var user = dbContext.Users
+                    .Where((User user) => user.dpi == dpi.Text && user.password == password.Text)
+                    .First();
                 this.Close();
-                new SignUp().Show();
+                new Home().Show();
             }
             catch (Exception ex)
             {
