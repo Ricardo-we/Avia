@@ -30,12 +30,12 @@
         {
             pictureBox1 = new PictureBox();
             signUpButton = new MaterialSkin.Controls.MaterialButton();
-            materialButton1 = new MaterialSkin.Controls.MaterialButton();
+            signUpBtn = new MaterialSkin.Controls.MaterialButton();
             materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            materialTextBox2 = new MaterialSkin.Controls.MaterialTextBox();
-            materialTextBox1 = new MaterialSkin.Controls.MaterialTextBox();
-            materialTextBox3 = new MaterialSkin.Controls.MaterialTextBox();
-            materialTextBox4 = new MaterialSkin.Controls.MaterialTextBox();
+            password = new MaterialSkin.Controls.MaterialTextBox();
+            name = new MaterialSkin.Controls.MaterialTextBox();
+            dpi = new MaterialSkin.Controls.MaterialTextBox();
+            age = new MaterialSkin.Controls.MaterialTextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -69,25 +69,26 @@
             signUpButton.UseVisualStyleBackColor = true;
             signUpButton.Click += signUpButton_Click;
             // 
-            // materialButton1
+            // signUpBtn
             // 
-            materialButton1.AutoSize = false;
-            materialButton1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton1.Depth = 0;
-            materialButton1.HighEmphasis = true;
-            materialButton1.Icon = null;
-            materialButton1.Location = new Point(254, 459);
-            materialButton1.Margin = new Padding(4, 6, 4, 6);
-            materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            materialButton1.Name = "materialButton1";
-            materialButton1.NoAccentTextColor = Color.Empty;
-            materialButton1.Size = new Size(274, 36);
-            materialButton1.TabIndex = 9;
-            materialButton1.Text = "Registrarse";
-            materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton1.UseAccentColor = false;
-            materialButton1.UseVisualStyleBackColor = true;
+            signUpBtn.AutoSize = false;
+            signUpBtn.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            signUpBtn.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            signUpBtn.Depth = 0;
+            signUpBtn.HighEmphasis = true;
+            signUpBtn.Icon = null;
+            signUpBtn.Location = new Point(254, 459);
+            signUpBtn.Margin = new Padding(4, 6, 4, 6);
+            signUpBtn.MouseState = MaterialSkin.MouseState.HOVER;
+            signUpBtn.Name = "signUpBtn";
+            signUpBtn.NoAccentTextColor = Color.Empty;
+            signUpBtn.Size = new Size(274, 36);
+            signUpBtn.TabIndex = 9;
+            signUpBtn.Text = "Registrarse";
+            signUpBtn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            signUpBtn.UseAccentColor = false;
+            signUpBtn.UseVisualStyleBackColor = true;
+            signUpBtn.Click += signUpBtn_Click;
             // 
             // materialLabel1
             // 
@@ -102,77 +103,77 @@
             materialLabel1.TabIndex = 8;
             materialLabel1.Text = "Avia";
             // 
-            // materialTextBox2
+            // password
             // 
-            materialTextBox2.AnimateReadOnly = false;
-            materialTextBox2.BorderStyle = BorderStyle.None;
-            materialTextBox2.Depth = 0;
-            materialTextBox2.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialTextBox2.Hint = "Contraseña";
-            materialTextBox2.LeadingIcon = null;
-            materialTextBox2.Location = new Point(254, 195);
-            materialTextBox2.MaxLength = 50;
-            materialTextBox2.MouseState = MaterialSkin.MouseState.OUT;
-            materialTextBox2.Multiline = false;
-            materialTextBox2.Name = "materialTextBox2";
-            materialTextBox2.Size = new Size(274, 50);
-            materialTextBox2.TabIndex = 7;
-            materialTextBox2.Text = "";
-            materialTextBox2.TrailingIcon = null;
+            password.AnimateReadOnly = false;
+            password.BorderStyle = BorderStyle.None;
+            password.Depth = 0;
+            password.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            password.Hint = "Contraseña";
+            password.LeadingIcon = null;
+            password.Location = new Point(254, 195);
+            password.MaxLength = 50;
+            password.MouseState = MaterialSkin.MouseState.OUT;
+            password.Multiline = false;
+            password.Name = "password";
+            password.Size = new Size(274, 50);
+            password.TabIndex = 7;
+            password.Text = "";
+            password.TrailingIcon = null;
             // 
-            // materialTextBox1
+            // name
             // 
-            materialTextBox1.AnimateReadOnly = false;
-            materialTextBox1.BorderStyle = BorderStyle.None;
-            materialTextBox1.Depth = 0;
-            materialTextBox1.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialTextBox1.Hint = "Nombre de usuario";
-            materialTextBox1.LeadingIcon = null;
-            materialTextBox1.Location = new Point(254, 129);
-            materialTextBox1.MaxLength = 50;
-            materialTextBox1.MouseState = MaterialSkin.MouseState.OUT;
-            materialTextBox1.Multiline = false;
-            materialTextBox1.Name = "materialTextBox1";
-            materialTextBox1.Size = new Size(274, 50);
-            materialTextBox1.TabIndex = 6;
-            materialTextBox1.Text = "";
-            materialTextBox1.TrailingIcon = null;
+            name.AnimateReadOnly = false;
+            name.BorderStyle = BorderStyle.None;
+            name.Depth = 0;
+            name.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            name.Hint = "Nombre de usuario";
+            name.LeadingIcon = null;
+            name.Location = new Point(254, 129);
+            name.MaxLength = 50;
+            name.MouseState = MaterialSkin.MouseState.OUT;
+            name.Multiline = false;
+            name.Name = "name";
+            name.Size = new Size(274, 50);
+            name.TabIndex = 6;
+            name.Text = "";
+            name.TrailingIcon = null;
             // 
-            // materialTextBox3
+            // dpi
             // 
-            materialTextBox3.AnimateReadOnly = false;
-            materialTextBox3.BorderStyle = BorderStyle.None;
-            materialTextBox3.Depth = 0;
-            materialTextBox3.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialTextBox3.Hint = "Dpi";
-            materialTextBox3.LeadingIcon = null;
-            materialTextBox3.Location = new Point(254, 262);
-            materialTextBox3.MaxLength = 50;
-            materialTextBox3.MouseState = MaterialSkin.MouseState.OUT;
-            materialTextBox3.Multiline = false;
-            materialTextBox3.Name = "materialTextBox3";
-            materialTextBox3.Size = new Size(274, 50);
-            materialTextBox3.TabIndex = 12;
-            materialTextBox3.Text = "";
-            materialTextBox3.TrailingIcon = null;
+            dpi.AnimateReadOnly = false;
+            dpi.BorderStyle = BorderStyle.None;
+            dpi.Depth = 0;
+            dpi.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dpi.Hint = "Dpi";
+            dpi.LeadingIcon = null;
+            dpi.Location = new Point(254, 262);
+            dpi.MaxLength = 50;
+            dpi.MouseState = MaterialSkin.MouseState.OUT;
+            dpi.Multiline = false;
+            dpi.Name = "dpi";
+            dpi.Size = new Size(274, 50);
+            dpi.TabIndex = 12;
+            dpi.Text = "";
+            dpi.TrailingIcon = null;
             // 
-            // materialTextBox4
+            // age
             // 
-            materialTextBox4.AnimateReadOnly = false;
-            materialTextBox4.BorderStyle = BorderStyle.None;
-            materialTextBox4.Depth = 0;
-            materialTextBox4.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialTextBox4.Hint = "Edad";
-            materialTextBox4.LeadingIcon = null;
-            materialTextBox4.Location = new Point(254, 328);
-            materialTextBox4.MaxLength = 50;
-            materialTextBox4.MouseState = MaterialSkin.MouseState.OUT;
-            materialTextBox4.Multiline = false;
-            materialTextBox4.Name = "materialTextBox4";
-            materialTextBox4.Size = new Size(274, 50);
-            materialTextBox4.TabIndex = 13;
-            materialTextBox4.Text = "";
-            materialTextBox4.TrailingIcon = null;
+            age.AnimateReadOnly = false;
+            age.BorderStyle = BorderStyle.None;
+            age.Depth = 0;
+            age.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            age.Hint = "Edad";
+            age.LeadingIcon = null;
+            age.Location = new Point(254, 328);
+            age.MaxLength = 50;
+            age.MouseState = MaterialSkin.MouseState.OUT;
+            age.Multiline = false;
+            age.Name = "age";
+            age.Size = new Size(274, 50);
+            age.TabIndex = 13;
+            age.Text = "";
+            age.TrailingIcon = null;
             // 
             // SignUp
             // 
@@ -180,14 +181,14 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(822, 556);
-            Controls.Add(materialTextBox4);
-            Controls.Add(materialTextBox3);
+            Controls.Add(age);
+            Controls.Add(dpi);
             Controls.Add(pictureBox1);
             Controls.Add(signUpButton);
-            Controls.Add(materialButton1);
+            Controls.Add(signUpBtn);
             Controls.Add(materialLabel1);
-            Controls.Add(materialTextBox2);
-            Controls.Add(materialTextBox1);
+            Controls.Add(password);
+            Controls.Add(name);
             Name = "SignUp";
             Text = "Registro";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -199,11 +200,11 @@
 
         private PictureBox pictureBox1;
         private MaterialSkin.Controls.MaterialButton signUpButton;
-        private MaterialSkin.Controls.MaterialButton materialButton1;
+        private MaterialSkin.Controls.MaterialButton signUpBtn;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
-        private MaterialSkin.Controls.MaterialTextBox materialTextBox2;
-        private MaterialSkin.Controls.MaterialTextBox materialTextBox1;
-        private MaterialSkin.Controls.MaterialTextBox materialTextBox3;
-        private MaterialSkin.Controls.MaterialTextBox materialTextBox4;
+        private MaterialSkin.Controls.MaterialTextBox password;
+        private MaterialSkin.Controls.MaterialTextBox name;
+        private MaterialSkin.Controls.MaterialTextBox dpi;
+        private MaterialSkin.Controls.MaterialTextBox age;
     }
 }

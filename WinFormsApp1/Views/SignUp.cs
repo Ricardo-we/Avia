@@ -30,5 +30,10 @@ namespace AviaApp.Views
         {
             FormUtils.OnFormClosing(this);
         }
+
+        private void signUpBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

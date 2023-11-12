@@ -20,8 +20,14 @@ namespace WinFormsApp1
         }
 
 
-        protected override void OnFormClosing(FormClosingEventArgs e) {
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
             FormUtils.OnFormClosing(this);
+        }
+
+        private void loginButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
