@@ -49,9 +49,9 @@ namespace AviaApp
 
         private void materialRadioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            if (materialRadioButton2.Checked)
+            if (materialRadioButton1.Checked)
             {
-                pictureBox3.Image = AviaApp.Properties.Resources.clase_vip;
+                pictureBox2.Image = AviaApp.Properties.Resources.clase_vip;
                 rangoInicio = 1;
                 rangoFin = 25;
                 HabilitarAsientos();
@@ -63,7 +63,7 @@ namespace AviaApp
 
             if (materialRadioButton3.Checked)
             {
-                pictureBox3.Image = AviaApp.Properties.Resources.clase_empresarial;
+                pictureBox2.Image = AviaApp.Properties.Resources.clase_empresarial;
                 rangoInicio = 26;
                 rangoFin = 65;
                 HabilitarAsientos();
@@ -73,9 +73,9 @@ namespace AviaApp
         private void materialRadioButton2_CheckedChanged(object sender, EventArgs e)
         {
 
-            if (materialRadioButton1.Checked)
+            if (materialRadioButton2.Checked)
             {
-                pictureBox3.Image = AviaApp.Properties.Resources.clase_turista;
+                pictureBox2.Image = AviaApp.Properties.Resources.clase_turista;
                 rangoInicio = 66;
                 rangoFin = 125;
                 HabilitarAsientos();
