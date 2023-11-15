@@ -24,12 +24,15 @@ namespace Avia.DB
         public DbSet<Ciudad> Ciudades { get; set; }
         public DbSet<Vuelo> Vuelos { get; set; }
         public DbSet<TarjetaVuelo> TarjetasVuelo { get; set; }
+        public DbSet<Asiento> Asientos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<User>().ToTable("user").HasIndex(u => u.dpi).IsUnique(true);
+            modelBuilder.Entity<Asiento>().ToTable("asiento");
+
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options) =>

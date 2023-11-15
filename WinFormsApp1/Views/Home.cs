@@ -23,5 +23,10 @@ namespace AviaApp.Views
             FormUtils.OnFormClosing(this);
         }
 
+        private void materialButton1_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+            new FormAsientos().Show();
+        }
     }
 }
