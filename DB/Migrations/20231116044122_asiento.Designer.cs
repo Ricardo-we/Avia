@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DB.Migrations
 {
     [DbContext(typeof(DBContext))]
-    [Migration("20231115152520_CrearTablaDeAsientos")]
-    partial class CrearTablaDeAsientos
+    [Migration("20231116044122_asiento")]
+    partial class asiento
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -57,7 +57,7 @@ namespace DB.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("Ciudades");
+                    b.ToTable("ciudad", (string)null);
                 });
 
             modelBuilder.Entity("DB.TarjetaVuelo", b =>
@@ -86,7 +86,7 @@ namespace DB.Migrations
 
                     b.HasIndex("VueloId");
 
-                    b.ToTable("TarjetasVuelo");
+                    b.ToTable("tarjeta_vuelo", (string)null);
                 });
 
             modelBuilder.Entity("DB.User", b =>
@@ -152,7 +152,7 @@ namespace DB.Migrations
 
                     b.HasIndex("CiudadOrigenId");
 
-                    b.ToTable("Vuelos");
+                    b.ToTable("vuelo", (string)null);
                 });
 
             modelBuilder.Entity("DB.TarjetaVuelo", b =>

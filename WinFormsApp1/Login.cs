@@ -1,4 +1,5 @@
 using Avia.DB;
+using AviaApp.Services;
 using AviaApp.Utils;
 using AviaApp.Views;
 using DB;
@@ -12,6 +13,8 @@ namespace WinFormsApp1
         public LoginForm()
         {
             InitializeComponent();
+            var response = WeatherService.GetWeather();
+            Debug.WriteLine(response);
         }
 
 

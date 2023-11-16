@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DB.Migrations
 {
     /// <inheritdoc />
-    public partial class CrearTablaDeAsientos : Migration
+    public partial class asiento : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -27,7 +27,7 @@ namespace DB.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Ciudades",
+                name: "ciudad",
                 columns: table => new
                 {
                     id = table.Column<int>(type: "INTEGER", nullable: false)
@@ -37,11 +37,11 @@ namespace DB.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Ciudades", x => x.id);
+                    table.PrimaryKey("PK_ciudad", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Vuelos",
+                name: "vuelo",
                 columns: table => new
                 {
                     id = table.Column<int>(type: "INTEGER", nullable: false)
@@ -56,23 +56,23 @@ namespace DB.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Vuelos", x => x.id);
+                    table.PrimaryKey("PK_vuelo", x => x.id);
                     table.ForeignKey(
-                        name: "FK_Vuelos_Ciudades_CiudadDestinoId",
+                        name: "FK_vuelo_ciudad_CiudadDestinoId",
                         column: x => x.CiudadDestinoId,
-                        principalTable: "Ciudades",
+                        principalTable: "ciudad",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Vuelos_Ciudades_CiudadOrigenId",
+                        name: "FK_vuelo_ciudad_CiudadOrigenId",
                         column: x => x.CiudadOrigenId,
-                        principalTable: "Ciudades",
+                        principalTable: "ciudad",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "TarjetasVuelo",
+                name: "tarjeta_vuelo",
                 columns: table => new
                 {
                     id = table.Column<int>(type: "INTEGER", nullable: false)
@@ -85,28 +85,28 @@ namespace DB.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TarjetasVuelo", x => x.id);
+                    table.PrimaryKey("PK_tarjeta_vuelo", x => x.id);
                     table.ForeignKey(
-                        name: "FK_TarjetasVuelo_Vuelos_VueloId",
+                        name: "FK_tarjeta_vuelo_vuelo_VueloId",
                         column: x => x.VueloId,
-                        principalTable: "Vuelos",
+                        principalTable: "vuelo",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_TarjetasVuelo_VueloId",
-                table: "TarjetasVuelo",
+                name: "IX_tarjeta_vuelo_VueloId",
+                table: "tarjeta_vuelo",
                 column: "VueloId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Vuelos_CiudadDestinoId",
-                table: "Vuelos",
+                name: "IX_vuelo_CiudadDestinoId",
+                table: "vuelo",
                 column: "CiudadDestinoId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Vuelos_CiudadOrigenId",
-                table: "Vuelos",
+                name: "IX_vuelo_CiudadOrigenId",
+                table: "vuelo",
                 column: "CiudadOrigenId");
         }
 
@@ -117,13 +117,13 @@ namespace DB.Migrations
                 name: "asiento");
 
             migrationBuilder.DropTable(
-                name: "TarjetasVuelo");
+                name: "tarjeta_vuelo");
 
             migrationBuilder.DropTable(
-                name: "Vuelos");
+                name: "vuelo");
 
             migrationBuilder.DropTable(
-                name: "Ciudades");
+                name: "ciudad");
         }
     }
 }

@@ -32,7 +32,9 @@ namespace Avia.DB
 
             modelBuilder.Entity<User>().ToTable("user").HasIndex(u => u.dpi).IsUnique(true);
             modelBuilder.Entity<Asiento>().ToTable("asiento");
-
+            modelBuilder.Entity<TarjetaVuelo>().ToTable("tarjeta_vuelo");
+            modelBuilder.Entity<Ciudad>().ToTable("ciudad");
+            modelBuilder.Entity<Vuelo>().ToTable("vuelo");
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options) =>
