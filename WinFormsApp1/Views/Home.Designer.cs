@@ -38,14 +38,14 @@
             materialButton1.Depth = 0;
             materialButton1.HighEmphasis = true;
             materialButton1.Icon = null;
-            materialButton1.Location = new Point(663, 409);
+            materialButton1.Location = new Point(704, 25);
             materialButton1.Margin = new Padding(3, 5, 3, 5);
             materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
             materialButton1.Name = "materialButton1";
             materialButton1.NoAccentTextColor = Color.Empty;
-            materialButton1.Size = new Size(158, 36);
+            materialButton1.Size = new Size(91, 36);
             materialButton1.TabIndex = 15;
-            materialButton1.Text = "materialButton1";
+            materialButton1.Text = "Asientos";
             materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             materialButton1.UseAccentColor = false;
             materialButton1.UseVisualStyleBackColor = true;

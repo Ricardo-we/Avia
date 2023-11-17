@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,8 +18,8 @@ namespace AviaApp.Views
 {
     public partial class Home : MaterialForm
     {
-        private MaterialTextBox txtCiudadOrigen;
-        private MaterialTextBox txtCiudadDestino;
+        private MaterialComboBox txtCiudadOrigen;
+        private MaterialComboBox txtCiudadDestino;
         private DateTimePicker dateTimePickerFechaIda;
         private DateTimePicker dateTimePickerFechaVuelta;
         private Button btnBuscarVuelos;
@@ -37,20 +38,31 @@ namespace AviaApp.Views
         private void InitializeComponents()
         {
             int initialY = 100;
-            // Configuración de la ventana principal
             this.Size = new Size(800, 600);
             this.Text = "Reserva de Vuelo";
 
-            // Configuración de los componentes
-            txtCiudadOrigen = new MaterialTextBox();
+            txtCiudadOrigen = new MaterialComboBox();
             txtCiudadOrigen.Location = new Point(20, initialY + 20);
             txtCiudadOrigen.Size = new Size(200, 30);
             txtCiudadOrigen.Hint = "Ciudad de Origen";
 
-            txtCiudadDestino = new MaterialTextBox();
+
+            txtCiudadDestino = new MaterialComboBox();
             txtCiudadDestino.Location = new Point(240, initialY + 20);
             txtCiudadDestino.Size = new Size(200, 30);
             txtCiudadDestino.Hint = "Ciudad de Destino";
+
+            using (var context = new DBContext())
+            {
+                txtCiudadOrigen.DataSource = context.Ciudades.ToList();
+                txtCiudadOrigen.DisplayMember = "Nombre";
+                txtCiudadOrigen.ValueMember = "Nombre";
+
+                txtCiudadDestino.DataSource = context.Ciudades.ToList();
+                txtCiudadDestino.DisplayMember = "Nombre";
+                txtCiudadDestino.ValueMember = "Nombre";
+            }
+
 
             dateTimePickerFechaIda = new DateTimePicker();
             dateTimePickerFechaIda.Location = new Point(20, initialY + 70);
@@ -69,7 +81,6 @@ namespace AviaApp.Views
             panelTarjetas.Size = new Size(760, 400);
             panelTarjetas.BorderStyle = BorderStyle.FixedSingle;
 
-            // Agregar los componentes al formulario
             this.Controls.Add(txtCiudadOrigen);
             this.Controls.Add(txtCiudadDestino);
             this.Controls.Add(dateTimePickerFechaIda);
@@ -81,47 +92,55 @@ namespace AviaApp.Views
 
         private void btnBuscarVuelos_Click(object sender, EventArgs e)
         {
-            // Obtener datos de entrada del usuario (ciudad origen, ciudad destino, fechas, etc.)
             string ciudadOrigen = txtCiudadOrigen.Text;
             string ciudadDestino = txtCiudadDestino.Text;
             DateTime fechaIda = dateTimePickerFechaIda.Value;
             DateTime fechaVuelta = dateTimePickerFechaVuelta.Value;
 
-            // Realizar la búsqueda en la base de datos utilizando Entity Framework
             using (var context = new DBContext())
             {
-                var resultados = context.TarjetasVuelo
-                    .Where(tarjeta => tarjeta.Vuelo.CiudadOrigen.Nombre == ciudadOrigen &&
-                                      tarjeta.Vuelo.CiudadDestino.Nombre == ciudadDestino &&
-                                      tarjeta.Vuelo.FechaIda == fechaIda &&
-                                      tarjeta.Vuelo.FechaVuelta == fechaVuelta)
+                var resultados = context.Vuelos
+                    .Where(tarjeta => 
+                        (tarjeta.CiudadOrigen.Nombre == ciudadOrigen 
+                        && tarjeta.CiudadDestino.Nombre == ciudadDestino)
+                        && (tarjeta.FechaIda.Date >= fechaIda.Date
+                        && tarjeta.FechaVuelta.Date <= fechaVuelta.Date)
+                    )
                     .ToList();
-
-                // Mostrar los resultados en forma de tarjetas en tu formulario
                 MostrarResultados(resultados);
             }
         }
 
-        private void MostrarResultados(List<TarjetaVuelo> resultados)
+        private void MostrarResultados(List<Vuelo> resultados)
         {
-            // Limpiar el panel antes de agregar nuevas tarjetas
             panelTarjetas.Controls.Clear();
+            if (resultados.Count <= 0)
+            {
+                panelTarjetas.Controls.Add(new Label { Dock = DockStyle.Top, Text = "No se encontraron datos." });
+                return;
+            }
 
             foreach (var tarjeta in resultados)
             {
                 var materialCard = new MaterialCard
                 {
-                    Width = 200, // Ajusta el ancho según tus necesidades
-                    Height = 250 // Ajusta la altura según tus necesidades
+                    Width = 220,
+                    Height = 200,
+                    Margin = new Padding { Left = 20, Right = 20 },
+                };
+
+                materialCard.Click += (sender, e) =>
+                {
+                    MostrarDetallesVuelo(tarjeta.id);
                 };
 
                 materialCard.Controls.Add(new PictureBox
                 {
-                    // Configurar PictureBox con la imagen de la ciudad destino, etc.
-                    ImageLocation = tarjeta.CiudadDestinoImgUrl,
+                    ImageLocation = tarjeta.CiudadDestinoImg,
                     SizeMode = PictureBoxSizeMode.StretchImage,
                     Dock = DockStyle.Top,
-                    Height = 120 // Ajusta la altura según tus necesidades
+                    Height = 120
+                    
                 });
 
                 materialCard.Controls.Add(new Label
@@ -142,7 +161,13 @@ namespace AviaApp.Views
                     Dock = DockStyle.Top
                 });
 
-                materialCard.Click += (sender, e) => MostrarDetallesVuelo(tarjeta.VueloId);
+                materialCard.Controls.Add(new Label
+                {
+                    Text = $"Destino: {tarjeta.CiudadDestino}",
+                    Dock = DockStyle.Top
+                });
+
+                materialCard.Click += (sender, e) => MostrarDetallesVuelo(tarjeta.id);
 
                 panelTarjetas.Controls.Add(materialCard);
             }
@@ -150,11 +175,12 @@ namespace AviaApp.Views
 
         private void MostrarDetallesVuelo(int vueloId)
         {
-            using (var context = new DBContext())
-            {
-                var detalleVuelo = context.Vuelos
-                    .FirstOrDefault(detalle => detalle.id == vueloId);
-            }
+            //using (var context = new DBContext())
+            //{
+            //    var detalleVuelo = context.Vuelos
+            //        .FirstOrDefault(detalle => detalle.id == vueloId);
+            //}
+
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)

@@ -31,6 +31,7 @@ namespace DB
         public decimal Precio { get; set; }
         public DateTime HoraSalida { get; set; }
         public DateTime HoraLlegada { get; set; }
+        public string CiudadDestinoImg { get; set; }
 
         public virtual Ciudad CiudadOrigen { get; set; }
         public virtual Ciudad CiudadDestino { get; set; }
