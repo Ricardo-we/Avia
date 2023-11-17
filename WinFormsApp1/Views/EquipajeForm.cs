@@ -29,14 +29,14 @@ namespace AviaApp.Views
             Equipaje equipaje = new Equipaje { 
                 alto = altoParsed,
                 ancho = NumberUtils.parseDouble(ancho.Text),
-                //largo = ,
-                //peso =,
+                largo = NumberUtils.parseDouble(largo.Text),
+                peso = NumberUtils.parseDouble(peso.Text),
                 user = SharedData.user,
             };
 
             using (DBContext dbContext = new DBContext())
             {
-                dbContext.Add(equipaje);
+                dbContext.Equipajes.Add(equipaje);
                 dbContext.SaveChanges();
             }
 
