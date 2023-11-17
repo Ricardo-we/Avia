@@ -1,4 +1,5 @@
 using Avia.DB;
+using AviaApp;
 using AviaApp.Services;
 using AviaApp.Utils;
 using AviaApp.Views;
@@ -38,7 +39,7 @@ namespace WinFormsApp1
                 var user = dbContext.Users
                     .Where((User user) => user.dpi == dpi.Text && user.password == password.Text)
                     .First();
-
+                SharedData.user = user;
                 this.Dispose();
                 new Home().Show();
             }

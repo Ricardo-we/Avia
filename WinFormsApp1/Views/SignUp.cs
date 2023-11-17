@@ -71,6 +71,7 @@ namespace AviaApp.Views
             };
             dbContext.Users.Add(user);
             dbContext.SaveChanges();
+            SharedData.user = user;
 
             this.Close();
             Home home = new Home();

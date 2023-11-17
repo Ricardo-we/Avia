@@ -25,6 +25,7 @@ namespace Avia.DB
         public DbSet<Vuelo> Vuelos { get; set; }
         public DbSet<TarjetaVuelo> TarjetasVuelo { get; set; }
         public DbSet<Asiento> Asientos { get; set; }
+        public DbSet<Equipaje> Equipajes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -35,6 +36,7 @@ namespace Avia.DB
             modelBuilder.Entity<TarjetaVuelo>().ToTable("tarjeta_vuelo");
             modelBuilder.Entity<Ciudad>().ToTable("ciudad");
             modelBuilder.Entity<Vuelo>().ToTable("vuelo");
+            modelBuilder.Entity<Equipaje>().ToTable("equipaje");
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options) =>

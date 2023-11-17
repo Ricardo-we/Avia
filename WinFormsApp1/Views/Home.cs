@@ -100,8 +100,8 @@ namespace AviaApp.Views
             using (var context = new DBContext())
             {
                 var resultados = context.Vuelos
-                    .Where(tarjeta => 
-                        (tarjeta.CiudadOrigen.Nombre == ciudadOrigen 
+                    .Where(tarjeta =>
+                        (tarjeta.CiudadOrigen.Nombre == ciudadOrigen
                         && tarjeta.CiudadDestino.Nombre == ciudadDestino)
                         && (tarjeta.FechaIda.Date >= fechaIda.Date
                         && tarjeta.FechaVuelta.Date <= fechaVuelta.Date)
@@ -140,7 +140,7 @@ namespace AviaApp.Views
                     SizeMode = PictureBoxSizeMode.StretchImage,
                     Dock = DockStyle.Top,
                     Height = 120
-                    
+
                 });
 
                 materialCard.Controls.Add(new Label
@@ -194,7 +194,9 @@ namespace AviaApp.Views
             new FormAsientos().Show();
         }
 
-
-
+        private void equipajeButton_Click(object sender, EventArgs e)
+        {
+            new EquipajeForm().Show();
+        }
     }
 }

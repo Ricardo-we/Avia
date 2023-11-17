@@ -3,6 +3,7 @@ using System;
 using Avia.DB;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DB.Migrations
 {
     [DbContext(typeof(DBContext))]
-    partial class DBContextModelSnapshot : ModelSnapshot
+    [Migration("20231117023421_equipaje")]
+    partial class equipaje
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.13");
@@ -55,34 +58,6 @@ namespace DB.Migrations
                     b.HasKey("id");
 
                     b.ToTable("ciudad", (string)null);
-                });
-
-            modelBuilder.Entity("DB.Equipaje", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<double>("alto")
-                        .HasColumnType("REAL");
-
-                    b.Property<double>("ancho")
-                        .HasColumnType("REAL");
-
-                    b.Property<double>("largo")
-                        .HasColumnType("REAL");
-
-                    b.Property<double>("peso")
-                        .HasColumnType("REAL");
-
-                    b.Property<int>("userid")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("id");
-
-                    b.HasIndex("userid");
-
-                    b.ToTable("equipaje", (string)null);
                 });
 
             modelBuilder.Entity("DB.TarjetaVuelo", b =>
@@ -182,17 +157,6 @@ namespace DB.Migrations
                     b.HasIndex("CiudadOrigenId");
 
                     b.ToTable("vuelo", (string)null);
-                });
-
-            modelBuilder.Entity("DB.Equipaje", b =>
-                {
-                    b.HasOne("DB.User", "user")
-                        .WithMany()
-                        .HasForeignKey("userid")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("user");
                 });
 
             modelBuilder.Entity("DB.TarjetaVuelo", b =>
