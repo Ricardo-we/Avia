@@ -26,7 +26,8 @@ namespace AviaApp.Views
         {
             double altoParsed = NumberUtils.parseDouble(alto.Text);
 
-            Equipaje equipaje = new Equipaje { 
+            Equipaje equipaje = new Equipaje
+            {
                 alto = altoParsed,
                 ancho = NumberUtils.parseDouble(ancho.Text),
                 largo = NumberUtils.parseDouble(largo.Text),
@@ -39,6 +40,11 @@ namespace AviaApp.Views
                 dbContext.Equipajes.Add(equipaje);
                 dbContext.SaveChanges();
             }
+
+        }
+
+        private void EquipajeForm_Load(object sender, EventArgs e)
+        {
 
         }
     }

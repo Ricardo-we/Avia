@@ -41,8 +41,6 @@
             pictureBox3 = new PictureBox();
             button1 = new Button();
             button4 = new Button();
-            button5 = new Button();
-            button6 = new Button();
             button7 = new Button();
             button8 = new Button();
             button9 = new Button();
@@ -50,32 +48,22 @@
             button11 = new Button();
             button12 = new Button();
             button13 = new Button();
-            button14 = new Button();
-            button15 = new Button();
             button16 = new Button();
             button17 = new Button();
             button18 = new Button();
             button19 = new Button();
-            button20 = new Button();
-            button21 = new Button();
             button22 = new Button();
             button23 = new Button();
             button24 = new Button();
             button25 = new Button();
-            button26 = new Button();
-            button27 = new Button();
             button28 = new Button();
             button29 = new Button();
             button30 = new Button();
             button31 = new Button();
-            button32 = new Button();
-            button33 = new Button();
             button34 = new Button();
             button35 = new Button();
             button36 = new Button();
             button37 = new Button();
-            button38 = new Button();
-            button39 = new Button();
             button40 = new Button();
             button2 = new Button();
             button3 = new Button();
@@ -184,6 +172,19 @@
             panel5 = new Panel();
             materialButton1 = new MaterialSkin.Controls.MaterialButton();
             materialButton2 = new MaterialSkin.Controls.MaterialButton();
+            button14 = new Button();
+            button6 = new Button();
+            button15 = new Button();
+            button21 = new Button();
+            button27 = new Button();
+            button33 = new Button();
+            button39 = new Button();
+            button38 = new Button();
+            button32 = new Button();
+            button26 = new Button();
+            button20 = new Button();
+            button5 = new Button();
+            comboBox1 = new ComboBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
@@ -206,7 +207,7 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1604, 118);
             panel1.TabIndex = 0;
-            panel1.Paint += panel1_Paint;
+
             // 
             // button120
             // 
@@ -329,26 +330,6 @@
             button4.Text = "26";
             button4.UseVisualStyleBackColor = false;
             // 
-            // button5
-            // 
-            button5.BackColor = SystemColors.Desktop;
-            button5.Location = new Point(1021, 344);
-            button5.Name = "button5";
-            button5.Size = new Size(50, 38);
-            button5.TabIndex = 7;
-            button5.Text = "button5";
-            button5.UseVisualStyleBackColor = false;
-            // 
-            // button6
-            // 
-            button6.BackColor = SystemColors.Desktop;
-            button6.Location = new Point(1021, 310);
-            button6.Name = "button6";
-            button6.Size = new Size(50, 38);
-            button6.TabIndex = 8;
-            button6.Text = "button6";
-            button6.UseVisualStyleBackColor = false;
-            // 
             // button7
             // 
             button7.BackColor = Color.LimeGreen;
@@ -419,26 +400,6 @@
             button13.Text = "20";
             button13.UseVisualStyleBackColor = false;
             // 
-            // button14
-            // 
-            button14.BackColor = SystemColors.Desktop;
-            button14.Location = new Point(1077, 276);
-            button14.Name = "button14";
-            button14.Size = new Size(50, 38);
-            button14.TabIndex = 15;
-            button14.Text = "button14";
-            button14.UseVisualStyleBackColor = false;
-            // 
-            // button15
-            // 
-            button15.BackColor = SystemColors.Desktop;
-            button15.Location = new Point(1077, 310);
-            button15.Name = "button15";
-            button15.Size = new Size(50, 38);
-            button15.TabIndex = 14;
-            button15.Text = "button15";
-            button15.UseVisualStyleBackColor = false;
-            // 
             // button16
             // 
             button16.BackColor = Color.LimeGreen;
@@ -478,26 +439,6 @@
             button19.TabIndex = 22;
             button19.Text = "21";
             button19.UseVisualStyleBackColor = false;
-            // 
-            // button20
-            // 
-            button20.BackColor = SystemColors.Desktop;
-            button20.Location = new Point(1133, 276);
-            button20.Name = "button20";
-            button20.Size = new Size(50, 38);
-            button20.TabIndex = 21;
-            button20.Text = "button20";
-            button20.UseVisualStyleBackColor = false;
-            // 
-            // button21
-            // 
-            button21.BackColor = SystemColors.Desktop;
-            button21.Location = new Point(1133, 310);
-            button21.Name = "button21";
-            button21.Size = new Size(50, 38);
-            button21.TabIndex = 20;
-            button21.Text = "button21";
-            button21.UseVisualStyleBackColor = false;
             // 
             // button22
             // 
@@ -539,26 +480,6 @@
             button25.Text = "22";
             button25.UseVisualStyleBackColor = false;
             // 
-            // button26
-            // 
-            button26.BackColor = SystemColors.Desktop;
-            button26.Location = new Point(1211, 276);
-            button26.Name = "button26";
-            button26.Size = new Size(50, 38);
-            button26.TabIndex = 27;
-            button26.Text = "button26";
-            button26.UseVisualStyleBackColor = false;
-            // 
-            // button27
-            // 
-            button27.BackColor = SystemColors.Desktop;
-            button27.Location = new Point(1211, 310);
-            button27.Name = "button27";
-            button27.Size = new Size(50, 38);
-            button27.TabIndex = 26;
-            button27.Text = "button27";
-            button27.UseVisualStyleBackColor = false;
-            // 
             // button28
             // 
             button28.BackColor = Color.LimeGreen;
@@ -599,26 +520,6 @@
             button31.Text = "23";
             button31.UseVisualStyleBackColor = false;
             // 
-            // button32
-            // 
-            button32.BackColor = SystemColors.Desktop;
-            button32.Location = new Point(1267, 276);
-            button32.Name = "button32";
-            button32.Size = new Size(50, 38);
-            button32.TabIndex = 33;
-            button32.Text = "button32";
-            button32.UseVisualStyleBackColor = false;
-            // 
-            // button33
-            // 
-            button33.BackColor = SystemColors.Desktop;
-            button33.Location = new Point(1267, 310);
-            button33.Name = "button33";
-            button33.Size = new Size(50, 38);
-            button33.TabIndex = 32;
-            button33.Text = "button33";
-            button33.UseVisualStyleBackColor = false;
-            // 
             // button34
             // 
             button34.BackColor = Color.LimeGreen;
@@ -658,26 +559,6 @@
             button37.TabIndex = 40;
             button37.Text = "24";
             button37.UseVisualStyleBackColor = false;
-            // 
-            // button38
-            // 
-            button38.BackColor = SystemColors.Desktop;
-            button38.Location = new Point(1323, 276);
-            button38.Name = "button38";
-            button38.Size = new Size(50, 38);
-            button38.TabIndex = 39;
-            button38.Text = "button38";
-            button38.UseVisualStyleBackColor = false;
-            // 
-            // button39
-            // 
-            button39.BackColor = SystemColors.Desktop;
-            button39.Location = new Point(1323, 310);
-            button39.Name = "button39";
-            button39.Size = new Size(50, 38);
-            button39.TabIndex = 38;
-            button39.Text = "button39";
-            button39.UseVisualStyleBackColor = false;
             // 
             // button40
             // 
@@ -1793,11 +1674,140 @@
             materialButton2.UseVisualStyleBackColor = true;
             materialButton2.Click += materialButton2_Click;
             // 
+            // button14
+            // 
+            button14.BackColor = SystemColors.Desktop;
+            button14.Location = new Point(1077, 276);
+            button14.Name = "button14";
+            button14.Size = new Size(50, 38);
+            button14.TabIndex = 15;
+            button14.Text = "button14";
+            button14.UseVisualStyleBackColor = false;
+            // 
+            // button6
+            // 
+            button6.BackColor = SystemColors.Desktop;
+            button6.Location = new Point(1021, 310);
+            button6.Name = "button6";
+            button6.Size = new Size(50, 38);
+            button6.TabIndex = 8;
+            button6.Text = "button6";
+            button6.UseVisualStyleBackColor = false;
+            // 
+            // button15
+            // 
+            button15.BackColor = SystemColors.Desktop;
+            button15.Location = new Point(1077, 310);
+            button15.Name = "button15";
+            button15.Size = new Size(50, 38);
+            button15.TabIndex = 14;
+            button15.Text = "button15";
+            button15.UseVisualStyleBackColor = false;
+            // 
+            // button21
+            // 
+            button21.BackColor = SystemColors.Desktop;
+            button21.Location = new Point(1133, 310);
+            button21.Name = "button21";
+            button21.Size = new Size(50, 38);
+            button21.TabIndex = 20;
+            button21.Text = "button21";
+            button21.UseVisualStyleBackColor = false;
+            // 
+            // button27
+            // 
+            button27.BackColor = SystemColors.Desktop;
+            button27.Location = new Point(1211, 310);
+            button27.Name = "button27";
+            button27.Size = new Size(50, 38);
+            button27.TabIndex = 26;
+            button27.Text = "button27";
+            button27.UseVisualStyleBackColor = false;
+            // 
+            // button33
+            // 
+            button33.BackColor = SystemColors.Desktop;
+            button33.Location = new Point(1267, 310);
+            button33.Name = "button33";
+            button33.Size = new Size(50, 38);
+            button33.TabIndex = 32;
+            button33.Text = "button33";
+            button33.UseVisualStyleBackColor = false;
+            // 
+            // button39
+            // 
+            button39.BackColor = SystemColors.Desktop;
+            button39.Location = new Point(1323, 310);
+            button39.Name = "button39";
+            button39.Size = new Size(50, 38);
+            button39.TabIndex = 38;
+            button39.Text = "button39";
+            button39.UseVisualStyleBackColor = false;
+            // 
+            // button38
+            // 
+            button38.BackColor = SystemColors.Desktop;
+            button38.Location = new Point(1323, 276);
+            button38.Name = "button38";
+            button38.Size = new Size(50, 38);
+            button38.TabIndex = 39;
+            button38.Text = "button38";
+            button38.UseVisualStyleBackColor = false;
+            // 
+            // button32
+            // 
+            button32.BackColor = SystemColors.Desktop;
+            button32.Location = new Point(1267, 276);
+            button32.Name = "button32";
+            button32.Size = new Size(50, 38);
+            button32.TabIndex = 33;
+            button32.Text = "button32";
+            button32.UseVisualStyleBackColor = false;
+            // 
+            // button26
+            // 
+            button26.BackColor = SystemColors.Desktop;
+            button26.Location = new Point(1211, 276);
+            button26.Name = "button26";
+            button26.Size = new Size(50, 38);
+            button26.TabIndex = 27;
+            button26.Text = "button26";
+            button26.UseVisualStyleBackColor = false;
+            // 
+            // button20
+            // 
+            button20.BackColor = SystemColors.Desktop;
+            button20.Location = new Point(1133, 276);
+            button20.Name = "button20";
+            button20.Size = new Size(50, 38);
+            button20.TabIndex = 21;
+            button20.Text = "button20";
+            button20.UseVisualStyleBackColor = false;
+            // 
+            // button5
+            // 
+            button5.BackColor = SystemColors.Desktop;
+            button5.Location = new Point(1021, 344);
+            button5.Name = "button5";
+            button5.Size = new Size(50, 38);
+            button5.TabIndex = 7;
+            button5.Text = "button5";
+            button5.UseVisualStyleBackColor = false;
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(269, 674);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(182, 33);
+            comboBox1.TabIndex = 151;
+            // 
             // FormAsientos
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1604, 1012);
+            Controls.Add(comboBox1);
             Controls.Add(materialButton2);
             Controls.Add(materialButton1);
             Controls.Add(panel5);
@@ -1948,6 +1958,7 @@
             Controls.Add(pictureBox3);
             Name = "FormAsientos";
             Text = "FormAsientos";
+            Load += FormAsientos_Load_1;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
@@ -1966,8 +1977,6 @@
         private PictureBox pictureBox3;
         private Button button1;
         private Button button4;
-        private Button button5;
-        private Button button6;
         private Button button7;
         private Button button8;
         private Button button9;
@@ -1975,32 +1984,22 @@
         private Button button11;
         private Button button12;
         private Button button13;
-        private Button button14;
-        private Button button15;
         private Button button16;
         private Button button17;
         private Button button18;
         private Button button19;
-        private Button button20;
-        private Button button21;
         private Button button22;
         private Button button23;
         private Button button24;
         private Button button25;
-        private Button button26;
-        private Button button27;
         private Button button28;
         private Button button29;
         private Button button30;
         private Button button31;
-        private Button button32;
-        private Button button33;
         private Button button34;
         private Button button35;
         private Button button36;
         private Button button37;
-        private Button button38;
-        private Button button39;
         private Button button40;
         private Button button2;
         private Button button3;
@@ -2115,5 +2114,18 @@
         private Panel panel5;
         private MaterialSkin.Controls.MaterialButton materialButton1;
         private MaterialSkin.Controls.MaterialButton materialButton2;
+        private Button button14;
+        private Button button6;
+        private Button button15;
+        private Button button21;
+        private Button button27;
+        private Button button33;
+        private Button button39;
+        private Button button38;
+        private Button button32;
+        private Button button26;
+        private Button button20;
+        private Button button5;
+        private ComboBox comboBox1;
     }
 }

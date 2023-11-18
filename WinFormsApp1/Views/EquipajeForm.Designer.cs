@@ -44,12 +44,13 @@
             peso.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             peso.Hint = "Peso";
             peso.LeadingIcon = null;
-            peso.Location = new Point(425, 174);
+            peso.Location = new Point(531, 218);
+            peso.Margin = new Padding(4, 4, 4, 4);
             peso.MaxLength = 50;
             peso.MouseState = MaterialSkin.MouseState.OUT;
             peso.Multiline = false;
             peso.Name = "peso";
-            peso.Size = new Size(274, 50);
+            peso.Size = new Size(342, 50);
             peso.TabIndex = 17;
             peso.Text = "";
             peso.TrailingIcon = null;
@@ -62,12 +63,13 @@
             alto.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             alto.Hint = "Alto";
             alto.LeadingIcon = null;
-            alto.Location = new Point(78, 174);
+            alto.Location = new Point(98, 218);
+            alto.Margin = new Padding(4, 4, 4, 4);
             alto.MaxLength = 50;
             alto.MouseState = MaterialSkin.MouseState.OUT;
             alto.Multiline = false;
             alto.Name = "alto";
-            alto.Size = new Size(274, 50);
+            alto.Size = new Size(342, 50);
             alto.TabIndex = 16;
             alto.Text = "";
             alto.TrailingIcon = null;
@@ -80,12 +82,13 @@
             ancho.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             ancho.Hint = "Ancho";
             ancho.LeadingIcon = null;
-            ancho.Location = new Point(425, 96);
+            ancho.Location = new Point(531, 120);
+            ancho.Margin = new Padding(4, 4, 4, 4);
             ancho.MaxLength = 50;
             ancho.MouseState = MaterialSkin.MouseState.OUT;
             ancho.Multiline = false;
             ancho.Name = "ancho";
-            ancho.Size = new Size(274, 50);
+            ancho.Size = new Size(342, 50);
             ancho.TabIndex = 15;
             ancho.Text = "";
             ancho.TrailingIcon = null;
@@ -98,12 +101,13 @@
             largo.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             largo.Hint = "Largo";
             largo.LeadingIcon = null;
-            largo.Location = new Point(78, 96);
+            largo.Location = new Point(98, 120);
+            largo.Margin = new Padding(4, 4, 4, 4);
             largo.MaxLength = 50;
             largo.MouseState = MaterialSkin.MouseState.OUT;
             largo.Multiline = false;
             largo.Name = "largo";
-            largo.Size = new Size(274, 50);
+            largo.Size = new Size(342, 50);
             largo.TabIndex = 14;
             largo.Text = "";
             largo.TrailingIcon = null;
@@ -114,7 +118,8 @@
             materialLabel1.Depth = 0;
             materialLabel1.Font = new Font("Roboto Medium", 20F, FontStyle.Bold, GraphicsUnit.Pixel);
             materialLabel1.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            materialLabel1.Location = new Point(307, 18);
+            materialLabel1.Location = new Point(384, 22);
+            materialLabel1.Margin = new Padding(4, 0, 4, 0);
             materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             materialLabel1.Name = "materialLabel1";
             materialLabel1.Size = new Size(163, 24);
@@ -128,8 +133,8 @@
             materialButton1.Depth = 0;
             materialButton1.HighEmphasis = true;
             materialButton1.Icon = null;
-            materialButton1.Location = new Point(330, 291);
-            materialButton1.Margin = new Padding(4, 6, 4, 6);
+            materialButton1.Location = new Point(412, 364);
+            materialButton1.Margin = new Padding(5, 8, 5, 8);
             materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
             materialButton1.Name = "materialButton1";
             materialButton1.NoAccentTextColor = Color.Empty;
@@ -143,18 +148,20 @@
             // 
             // EquipajeForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1000, 562);
             Controls.Add(materialButton1);
             Controls.Add(materialLabel1);
             Controls.Add(peso);
             Controls.Add(alto);
             Controls.Add(ancho);
             Controls.Add(largo);
+            Margin = new Padding(4, 4, 4, 4);
             Name = "EquipajeForm";
             Text = "EquipajeForm";
+            Load += EquipajeForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
