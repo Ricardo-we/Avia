@@ -122,47 +122,49 @@ namespace AviaApp.Views
 
             foreach (var tarjeta in resultados)
             {
+                DockStyle sharedDockStyle = DockStyle.Bottom;
+
                 var materialCard = new MaterialCard
                 {
-                    Width = 220,
+                    Width = 350,
                     Height = 240,
-                    Margin = new Padding { Left = 20, Right = 20 },
+                    //Margin = new Padding { Left = 20, Right = 20 },
                     Controls = {
-                        new PictureBox
-                        {
-                            ImageLocation = tarjeta.CiudadDestinoImg,
-                            SizeMode = PictureBoxSizeMode.StretchImage,
-                            Dock = DockStyle.Top,
-                            Width = 220,
-                            Height = 120
-                        },
-                        new MaterialLabel
-                        {
-                            Text = $"Precio: {tarjeta.Precio:C}",
-                            Dock = DockStyle.Top
-                        },
-                        new MaterialLabel
-                        {
-                            Text = $"Hora de salida: {tarjeta.HoraSalida}",
-                            Dock = DockStyle.Top
-                        },
-                        new MaterialLabel
-                        {
-                            Text = $"Hora de llegada: {tarjeta.HoraLlegada}",
-                            Dock = DockStyle.Top
-                        },
                         new MaterialLabel
                         {
                             FontType = MaterialSkinManager.fontType.H6,
                             Text = $"Ver detalles",
-                            Dock = DockStyle.Top
+                            Dock = sharedDockStyle
+                        },
+                        new MaterialLabel
+                        {
+                            Text = $"Precio: {tarjeta.Precio:C}",
+                            Dock = sharedDockStyle,
+                        },
+                        new MaterialLabel
+                        {
+                            Text = $"Hora de salida: {tarjeta.HoraSalida}",
+                            Dock = sharedDockStyle
+                        },
+                        new MaterialLabel
+                        {
+                            Text = $"Hora de llegada: {tarjeta.HoraLlegada}",
+                            Dock = sharedDockStyle
+                        },
+                        new PictureBox
+                        {
+                            ImageLocation = tarjeta.CiudadDestinoImg,
+                            SizeMode = PictureBoxSizeMode.StretchImage,
+                            Dock = sharedDockStyle,
+                            Width = 220,
+                            Height = 120
                         },
                     },
                 };
 
                 var detailsButton = new MaterialButton
                 {
-                    Dock = DockStyle.Top,
+                    Dock = sharedDockStyle,
                     Text = "Ver detalles del vuelo",
                     Type = MaterialButton.MaterialButtonType.Outlined,
                 };

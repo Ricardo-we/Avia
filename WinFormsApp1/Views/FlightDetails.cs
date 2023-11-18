@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DB;
+using Avia.DB;
 
 namespace AviaApp.Views
 {
@@ -41,54 +42,65 @@ namespace AviaApp.Views
 
         private void InitializeComponents(Vuelo vuelo, dynamic weatherData)
         {
-            // Configuración del formulario
-            Size = new Size(400, 300);
-            int initialY = 200;
+            this.Size = new Size(380, 380);
             Text = "Detalles del Vuelo";
+            DockStyle sharedDockStyle = DockStyle.Top;
+            DBContext dbContext = new DBContext();
 
-            // Agregar controles y mostrar información (ajusta según tus necesidades)
-            // Ejemplo: Mostrar la imagen de la ciudad destino
+            Panel materialCard = new Panel
+            {
+                Dock = DockStyle.Fill,
+                AutoScroll = true,
+            };
+
             PictureBox pictureBox = new PictureBox
             {
-                Location = new Point(20, initialY + 20),
                 Size = new Size(120, 120),
                 ImageLocation = vuelo.CiudadDestinoImg,
-                SizeMode = PictureBoxSizeMode.StretchImage
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Dock = sharedDockStyle,
             };
 
-            // Ejemplo: Mostrar horarios, precio y pronóstico del clima
-            Label lblHoraSalida = new MaterialLabel
+            var lblHoraSalida = new MaterialLabel
             {
-                Location = new Point(160, initialY +  20),
-                Text = $"Hora de Salida: {vuelo.HoraSalida}"
+                Text = $"Hora de Salida: {vuelo.HoraSalida}",
+                Dock = sharedDockStyle,
             };
 
-            Label lblHoraLlegada = new Label
+            var lblHoraLlegada = new MaterialLabel
             {
-                Location = new Point(160, initialY + 50),
-                Text = $"Hora de Llegada: {vuelo.HoraLlegada}"
+                Text = $"Hora de Llegada: {vuelo.HoraLlegada}",
+                Dock = sharedDockStyle,
             };
 
-            Label lblPrecio = new Label
+            var lblCiudadOrigen = new MaterialLabel
             {
-                Location = new Point(160, initialY + 80),
-                Text = $"Precio: {vuelo.Precio:C}"
+                Text = $"Ciudad origen: {dbContext.Ciudades.Where((ciudad) => ciudad.id == vuelo.CiudadOrigenId).First().Nombre}",
+                Dock = sharedDockStyle,
             };
 
-            //Label lblClima = new Label
-            //{
-            //    Location = new System.Drawing.Point(160, 110),
-            //    Text = $"Clima: {weatherData?.condition?.text}, Temperatura: {weatherData?.temp_c}°C"
-            //};
+            var lblCiudadDestino = new MaterialLabel
+            {
+                Text = $"Ciudad destino: {dbContext.Ciudades.Where((ciudad) => ciudad.id == vuelo.CiudadDestinoId).First().Nombre}",
+                Dock = sharedDockStyle,
+            };
 
-            // Agregar los controles al formulario
-            this.Controls.Add(pictureBox);
-            this.Controls.Add(lblHoraSalida);
-            this.Controls.Add(lblHoraLlegada);
-            this.Controls.Add(lblPrecio);
-            //this.Controls.Add(lblClima);
+
+            var lblPrecio = new MaterialLabel
+            {
+                Text = $"Precio: {vuelo.Precio}",
+                Dock = sharedDockStyle,
+            };
+
+            materialCard.Controls.Add(lblHoraSalida);
+            materialCard.Controls.Add(lblHoraLlegada);
+            materialCard.Controls.Add(lblCiudadOrigen);
+            materialCard.Controls.Add(lblCiudadDestino);
+            materialCard.Controls.Add(lblPrecio);
+            materialCard.Controls.Add(pictureBox);
+            this.Controls.Add(materialCard);
+            dbContext.Dispose();
         }
-
 
     }
 }
