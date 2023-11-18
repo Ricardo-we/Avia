@@ -11,7 +11,20 @@ namespace DB.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-           
+            migrationBuilder.CreateTable(
+                name: "asiento",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Numero = table.Column<int>(type: "INTEGER", nullable: false),
+                    Clase = table.Column<string>(type: "TEXT", nullable: false),
+                    Reservado = table.Column<bool>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_asiento", x => x.Id);
+                });
 
             migrationBuilder.CreateTable(
                 name: "ciudad",
