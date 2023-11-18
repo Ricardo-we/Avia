@@ -125,56 +125,58 @@ namespace AviaApp.Views
                 var materialCard = new MaterialCard
                 {
                     Width = 220,
-                    Height = 200,
+                    Height = 240,
                     Margin = new Padding { Left = 20, Right = 20 },
+                    Controls = {
+                        new PictureBox
+                        {
+                            ImageLocation = tarjeta.CiudadDestinoImg,
+                            SizeMode = PictureBoxSizeMode.StretchImage,
+                            Dock = DockStyle.Top,
+                            Width = 220,
+                            Height = 120
+                        },
+                        new MaterialLabel
+                        {
+                            Text = $"Precio: {tarjeta.Precio:C}",
+                            Dock = DockStyle.Top
+                        },
+                        new MaterialLabel
+                        {
+                            Text = $"Hora de salida: {tarjeta.HoraSalida}",
+                            Dock = DockStyle.Top
+                        },
+                        new MaterialLabel
+                        {
+                            Text = $"Hora de llegada: {tarjeta.HoraLlegada}",
+                            Dock = DockStyle.Top
+                        },
+                        new MaterialLabel
+                        {
+                            FontType = MaterialSkinManager.fontType.H6,
+                            Text = $"Ver detalles",
+                            Dock = DockStyle.Top
+                        },
+                    },
                 };
 
-                materialCard.Click += (sender, e) =>
+                var detailsButton = new MaterialButton
                 {
-                    MostrarDetallesVuelo(tarjeta.id);
-                };
-
-                materialCard.Controls.Add(new PictureBox
-                {
-                    ImageLocation = tarjeta.CiudadDestinoImg,
-                    SizeMode = PictureBoxSizeMode.StretchImage,
                     Dock = DockStyle.Top,
-                    Height = 120
+                    Text = "Ver detalles del vuelo",
+                    Type = MaterialButton.MaterialButtonType.Outlined,
+                };
 
-                });
-
-                materialCard.Controls.Add(new Label
-                {
-                    Text = $"Precio: {tarjeta.Precio:C}",
-                    Dock = DockStyle.Top
-                });
-
-                materialCard.Controls.Add(new Label
-                {
-                    Text = $"Hora de salida: {tarjeta.HoraSalida}",
-                    Dock = DockStyle.Top
-                });
-
-                materialCard.Controls.Add(new Label
-                {
-                    Text = $"Hora de llegada: {tarjeta.HoraLlegada}",
-                    Dock = DockStyle.Top
-                });
-
-                materialCard.Controls.Add(new Label
-                {
-                    Text = $"Destino: {tarjeta.CiudadDestino}",
-                    Dock = DockStyle.Top
-                });
-
-                materialCard.Click += (sender, e) => MostrarDetallesVuelo(tarjeta.id);
+                detailsButton.Click += (sender, e) => MostrarDetallesVuelo(tarjeta);
+                materialCard.Controls.Add(detailsButton);
 
                 panelTarjetas.Controls.Add(materialCard);
             }
         }
 
-        private void MostrarDetallesVuelo(int vueloId)
+        private void MostrarDetallesVuelo(Vuelo vuelo)
         {
+            new FlightDetails(vuelo, new { }).Show();
             //using (var context = new DBContext())
             //{
             //    var detalleVuelo = context.Vuelos

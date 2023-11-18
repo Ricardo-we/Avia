@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DB;
 
 namespace AviaApp.Views
 {
@@ -22,68 +23,70 @@ namespace AviaApp.Views
         private Panel panelTarjetas;
         private readonly MaterialSkinManager materialSkinManager;
 
-        public FlightDetails()
+        //public FlightDetails()
+        //{
+        //    InitializeComponent();
+        //    materialSkinManager = MaterialSkinManager.Instance;
+        //    materialSkinManager.AddFormToManage(this);
+        //    materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+
+        //    InitializeComponents();
+        //}
+
+        public FlightDetails(Vuelo vuelo, dynamic weatherData)
         {
             InitializeComponent();
-            materialSkinManager = MaterialSkinManager.Instance;
-            materialSkinManager.AddFormToManage(this);
-            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-
-            InitializeComponents();
+            InitializeComponents(vuelo, weatherData);
         }
 
-        private void InitializeComponents()
+        private void InitializeComponents(Vuelo vuelo, dynamic weatherData)
         {
-            int initialY = 100;
-            this.Size = new Size(800, 600);
-            this.Text = "Reserva de Vuelo";
+            // Configuración del formulario
+            Size = new Size(400, 300);
+            int initialY = 200;
+            Text = "Detalles del Vuelo";
 
-            txtCiudadOrigen = new MaterialComboBox();
-            txtCiudadOrigen.Location = new Point(20, initialY + 20);
-            txtCiudadOrigen.Size = new Size(200, 30);
-            txtCiudadOrigen.Hint = "Ciudad de Origen";
+            // Agregar controles y mostrar información (ajusta según tus necesidades)
+            // Ejemplo: Mostrar la imagen de la ciudad destino
+            PictureBox pictureBox = new PictureBox
+            {
+                Location = new Point(20, initialY + 20),
+                Size = new Size(120, 120),
+                ImageLocation = vuelo.CiudadDestinoImg,
+                SizeMode = PictureBoxSizeMode.StretchImage
+            };
 
+            // Ejemplo: Mostrar horarios, precio y pronóstico del clima
+            Label lblHoraSalida = new MaterialLabel
+            {
+                Location = new Point(160, initialY +  20),
+                Text = $"Hora de Salida: {vuelo.HoraSalida}"
+            };
 
-            txtCiudadDestino = new MaterialComboBox();
-            txtCiudadDestino.Location = new Point(240, initialY + 20);
-            txtCiudadDestino.Size = new Size(200, 30);
-            txtCiudadDestino.Hint = "Ciudad de Destino";
+            Label lblHoraLlegada = new Label
+            {
+                Location = new Point(160, initialY + 50),
+                Text = $"Hora de Llegada: {vuelo.HoraLlegada}"
+            };
 
-            //using (var context = new DBContext())
+            Label lblPrecio = new Label
+            {
+                Location = new Point(160, initialY + 80),
+                Text = $"Precio: {vuelo.Precio:C}"
+            };
+
+            //Label lblClima = new Label
             //{
-            //    txtCiudadOrigen.DataSource = context.Ciudades.ToList();
-            //    txtCiudadOrigen.DisplayMember = "Nombre";
-            //    txtCiudadOrigen.ValueMember = "Nombre";
+            //    Location = new System.Drawing.Point(160, 110),
+            //    Text = $"Clima: {weatherData?.condition?.text}, Temperatura: {weatherData?.temp_c}°C"
+            //};
 
-            //    txtCiudadDestino.DataSource = context.Ciudades.ToList();
-            //    txtCiudadDestino.DisplayMember = "Nombre";
-            //    txtCiudadDestino.ValueMember = "Nombre";
-            //}
-
-
-            dateTimePickerFechaIda = new DateTimePicker();
-            dateTimePickerFechaIda.Location = new Point(20, initialY + 70);
-
-            dateTimePickerFechaVuelta = new DateTimePicker();
-            dateTimePickerFechaVuelta.Location = new Point(240, initialY + 70);
-
-            btnBuscarVuelos = new Button();
-            btnBuscarVuelos.Location = new Point(20, initialY + 120);
-            btnBuscarVuelos.Size = new Size(120, 40);
-            btnBuscarVuelos.Text = "Buscar Vuelos";
-            //btnBuscarVuelos.Click += btnBuscarVuelos_Click;
-
-            panelTarjetas = new Panel();
-            panelTarjetas.Location = new Point(20, initialY + 170);
-            panelTarjetas.Size = new Size(760, 400);
-            panelTarjetas.BorderStyle = BorderStyle.FixedSingle;
-
-            this.Controls.Add(txtCiudadOrigen);
-            this.Controls.Add(txtCiudadDestino);
-            this.Controls.Add(dateTimePickerFechaIda);
-            this.Controls.Add(dateTimePickerFechaVuelta);
-            this.Controls.Add(btnBuscarVuelos);
-            this.Controls.Add(panelTarjetas);
+            // Agregar los controles al formulario
+            this.Controls.Add(pictureBox);
+            this.Controls.Add(lblHoraSalida);
+            this.Controls.Add(lblHoraLlegada);
+            this.Controls.Add(lblPrecio);
+            //this.Controls.Add(lblClima);
         }
 
 
