@@ -14,5 +14,12 @@ namespace AviaApp.Utils
             double.TryParse(value, out parsedValue);
             return parsedValue;
         }
+
+        public static int parseInt(string value)
+        {
+            int parsedValue = 0;
+            int.TryParse(value, out parsedValue);
+            return parsedValue;
+        }
     }
 }
