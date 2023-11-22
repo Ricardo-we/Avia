@@ -37,18 +37,18 @@ namespace DB
         public virtual Ciudad CiudadDestino { get; set; }
     }
 
-    public class TarjetaVuelo
-    {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int id { get; set; }
-        public int VueloId { get; set; }
-        public string CiudadDestinoImgUrl { get; set; }
-        public decimal Precio { get; set; }
-        public DateTime HoraSalida { get; set; }
-        public DateTime HoraLlegada { get; set; }
+    //public class TarjetaVuelo
+    //{
+    //    [Key]
+    //    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    //    public int id { get; set; }
+    //    public int VueloId { get; set; }
+    //    public string CiudadDestinoImgUrl { get; set; }
+    //    public decimal Precio { get; set; }
+    //    public DateTime HoraSalida { get; set; }
+    //    public DateTime HoraLlegada { get; set; }
 
-        public virtual Vuelo Vuelo { get; set; }
-    }
+    //    public virtual Vuelo Vuelo { get; set; }
+    //}
 
 }

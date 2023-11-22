@@ -21,6 +21,6 @@ namespace DB
         [StringLength(13)]
         public string dpi { get; set; }
         public int age { get; set; }
-
+        public string rol { get; set; }
     }
 }

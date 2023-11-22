@@ -41,9 +41,13 @@ namespace WinFormsApp1
                     .First();
                 SharedData.user = user;
                 this.Dispose();
+                if(user.rol == "admin")
+                {
+                    new Admin().Show();
+                    return;
+                }
                 new Home().Show();
-            }
-            catch (Exception ex)
+            } catch (Exception ex)
             {
                 MessageBox.Show("El usuario ingresado no existe o algún dato es inválido");
             }

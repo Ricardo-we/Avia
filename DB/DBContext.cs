@@ -23,7 +23,7 @@ namespace Avia.DB
         public DbSet<User> Users { get; set; }
         public DbSet<Ciudad> Ciudades { get; set; }
         public DbSet<Vuelo> Vuelos { get; set; }
-        public DbSet<TarjetaVuelo> TarjetasVuelo { get; set; }
+        //public DbSet<TarjetaVuelo> TarjetasVuelo { get; set; }
         public DbSet<Asiento> Asientos { get; set; }
         public DbSet<Equipaje> Equipajes { get; set; }
 
@@ -33,7 +33,7 @@ namespace Avia.DB
 
             modelBuilder.Entity<User>().ToTable("user").HasIndex(u => u.dpi).IsUnique(true);
             modelBuilder.Entity<Asiento>().ToTable("asiento");
-            modelBuilder.Entity<TarjetaVuelo>().ToTable("tarjeta_vuelo");
+            //modelBuilder.Entity<TarjetaVuelo>().ToTable("tarjeta_vuelo");
             modelBuilder.Entity<Ciudad>().ToTable("ciudad");
             modelBuilder.Entity<Vuelo>().ToTable("vuelo");
             modelBuilder.Entity<Equipaje>().ToTable("equipaje");
