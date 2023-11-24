@@ -58,9 +58,10 @@ namespace AviaApp.Views
             int ageIntVal = 0;
             int.TryParse(age.Text, out ageIntVal);
 
-            if (!validateForm(ageIntVal)) {
+            if (!validateForm(ageIntVal))
+            {
                 return;
-            } 
+            }
 
             User user = new User
             {
