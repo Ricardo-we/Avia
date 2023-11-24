@@ -72,7 +72,7 @@ namespace AviaApp
         .OrderBy(a => a.Numero)
         .ToList();
 
-            
+
             comboBox1.DataSource = null;
             comboBox1.DataSource = asientosFiltrados;
             comboBox1.DisplayMember = "Numero";
@@ -164,9 +164,9 @@ namespace AviaApp
             if (materialRadioButton2.Checked)
             {
                 pictureBox2.Image = AviaApp.Properties.Resources.clase_turista;
-               /* rangoInicio = 66;
-                rangoFin = 125;
-                HabilitarAsientos();*/
+                /* rangoInicio = 66;
+                 rangoFin = 125;
+                 HabilitarAsientos();*/
 
             }
         }
@@ -239,19 +239,19 @@ namespace AviaApp
 
 
 
-       /* private void EliminarAsientos(int numeroInicio, int numeroFin)
-        {
-            *//* var asientosAEliminar = _dbContext.Asientos
-                 .Where(a => a.Numero >= numeroInicio && a.Numero <= numeroFin)
-                 .ToList();
+        /* private void EliminarAsientos(int numeroInicio, int numeroFin)
+         {
+             *//* var asientosAEliminar = _dbContext.Asientos
+                  .Where(a => a.Numero >= numeroInicio && a.Numero <= numeroFin)
+                  .ToList();
 
-             foreach (var asiento in asientosAEliminar)
-             {
-                 _dbContext.Asientos.Remove(asiento);
-             }
+              foreach (var asiento in asientosAEliminar)
+              {
+                  _dbContext.Asientos.Remove(asiento);
+              }
 
-             _dbContext.SaveChanges();*//*
-        }*/
+              _dbContext.SaveChanges();*//*
+         }*/
 
 
     }
