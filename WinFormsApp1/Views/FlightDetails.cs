@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DB;
 using Avia.DB;
+using System.Diagnostics;
 
 namespace AviaApp.Views
 {
@@ -38,6 +39,7 @@ namespace AviaApp.Views
         {
             InitializeComponent();
             InitializeComponents(vuelo, weatherData);
+            //Debug.WriteLine(weatherData.ToString());
         }
 
         private void InitializeComponents(Vuelo vuelo, dynamic weatherData)
@@ -92,11 +94,26 @@ namespace AviaApp.Views
                 Dock = sharedDockStyle,
             };
 
+            var lblLluvia = new MaterialLabel
+            {
+                Text = $"Lloverá: " + (weatherData.Current.Condition.Text.ToLower() == "rain" ? "Sí" : "No"),
+                Dock = sharedDockStyle,
+            };
+
+            var lblTemperatura = new MaterialLabel
+            {
+                Text = $"Temperatura: {weatherData.Current.TempC} ºC",
+                Dock = sharedDockStyle,
+            };
+
+
             materialCard.Controls.Add(lblHoraSalida);
             materialCard.Controls.Add(lblHoraLlegada);
             materialCard.Controls.Add(lblCiudadOrigen);
             materialCard.Controls.Add(lblCiudadDestino);
             materialCard.Controls.Add(lblPrecio);
+            materialCard.Controls.Add(lblLluvia);
+            materialCard.Controls.Add(lblTemperatura);
             materialCard.Controls.Add(pictureBox);
             this.Controls.Add(materialCard);
             dbContext.Dispose();

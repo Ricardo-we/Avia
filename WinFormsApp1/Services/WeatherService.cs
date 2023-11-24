@@ -11,21 +11,41 @@ using System.Diagnostics;
 
 namespace AviaApp.Services
 {
-    public class WeatherService
+    public class WeatherData
     {
+        public CurrentWeatherData Current { get; set; }
+    }
 
-        public async static Task<dynamic> GetWeather()
+    public class CurrentWeatherData
+    {
+        public float TempC { get; set; }
+        public float TempF { get; set; }
+        public ConditionData Condition { get; set; }
+        public float PrecipMm { get; set; }
+        public float PrecipIn { get; set; }
+    }
+
+    public class ConditionData
+    {
+        public string Text { get; set; }
+        public int Code { get; set; }
+    }
+
+    public class WeatherService
+    {   
+
+        public async static Task<WeatherData> GetWeather(DateTime date, string cityName)
         {
-            HttpClient client = new HttpClient();
-            //client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", SharedData.API_KEY);
-            var response = await client.GetFromJsonAsync<object>($"{SharedData.API_URL}?key={SharedData.API_KEY}&q=15.783471");
-            //response.EnsureSuccessStatusCode();
-            //var jsonContent = await response.Content.ReadAsStringAsync();
-            //var parsedJsonContent = await JsonSerializer.DeserializeAsync(jsonContent, typeof WeatherItem);
-            //return "";
-
-            Debug.WriteLine( response );
-            return response;
+            try
+            {
+                HttpClient client = new HttpClient();
+                var response = await client.GetFromJsonAsync<WeatherData>($"{SharedData.API_URL}?key={SharedData.API_KEY}&q={cityName}&dt={date}&days=1");
+                return response;
+            } catch(Exception err)
+            {
+                Debug.WriteLine(err.Message);
+                return new WeatherData { };
+            }
         }
     }
 }

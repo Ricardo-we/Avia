@@ -17,6 +17,7 @@ namespace DB
         public int id { get; set; }
         public string Nombre { get; set; }
         public string ImagenUrl { get; set; }
+        public string ZipCode { get; set; }
     }
 
     public class Vuelo

@@ -17,6 +17,5 @@ namespace DB
         public int Numero { get; set; }
         public string Clase { get; set; }
         public bool Reservado { get; set; }
-
     }
 }

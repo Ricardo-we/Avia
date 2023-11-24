@@ -1,4 +1,5 @@
 ﻿using Avia.DB;
+using AviaApp.Services;
 using AviaApp.Utils;
 using DB;
 using MaterialSkin;
@@ -169,21 +170,21 @@ namespace AviaApp.Views
                     Type = MaterialButton.MaterialButtonType.Outlined,
                 };
 
-                detailsButton.Click += (sender, e) => MostrarDetallesVuelo(tarjeta);
+                detailsButton.Click += async (sender, e) => await MostrarDetallesVuelo(tarjeta);
                 materialCard.Controls.Add(detailsButton);
 
                 panelTarjetas.Controls.Add(materialCard);
             }
         }
 
-        private void MostrarDetallesVuelo(Vuelo vuelo)
+        private async Task MostrarDetallesVuelo(Vuelo vuelo)
         {
-            new FlightDetails(vuelo, new { }).Show();
-            //using (var context = new DBContext())
-            //{
-            //    var detalleVuelo = context.Vuelos
-            //        .FirstOrDefault(detalle => detalle.id == vueloId);
-            //}
+            using (DBContext db = new DBContext())
+            {
+                Ciudad ciudadDestino = db.Ciudades.Where((ciudad) => ciudad.id == vuelo.CiudadDestinoId).First();
+                var weatherData = await WeatherService.GetWeather(vuelo.FechaIda, ciudadDestino.Nombre);
+                new FlightDetails(vuelo, weatherData).Show();
+            }
 
         }
 

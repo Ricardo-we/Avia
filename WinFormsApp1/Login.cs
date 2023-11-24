@@ -14,17 +14,13 @@ namespace WinFormsApp1
         public LoginForm()
         {
             InitializeComponent();
-            var response = WeatherService.GetWeather();
-            Debug.WriteLine(response);
         }
-
 
         private void signUpButton_Click_1(object sender, EventArgs e)
         {
             new SignUp().Show();
             this.Dispose();
         }
-
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
@@ -41,11 +37,13 @@ namespace WinFormsApp1
                     .First();
                 SharedData.user = user;
                 this.Dispose();
-                if(user.rol == "admin")
+
+                if (user.rol == "admin")
                 {
                     new Admin().Show();
                     return;
                 }
+
                 new Home().Show();
             } catch (Exception ex)
             {
