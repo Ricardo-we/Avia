@@ -1,6 +1,7 @@
 ﻿using Avia.DB;
 using AviaApp.Views;
 using DB;
+using DB.Migrations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,14 +17,17 @@ namespace AviaApp
     public partial class FormAsientos : Form
     {
         private DBContext _dbContext;
+        private Vuelo _vuelo;
         private readonly DBContext dbContext = new DBContext();
         private int rangoInicio = 0;
         private int rangoFin = 0;
 
-        public FormAsientos()
+        public FormAsientos(Vuelo vuelo)
         {
             InitializeComponent();
             _dbContext = new DBContext();
+            _vuelo = vuelo;
+
 
             if (!_dbContext.Asientos.Any())
             {
