@@ -30,6 +30,7 @@
         {
             materialButton1 = new MaterialSkin.Controls.MaterialButton();
             equipajeButton = new MaterialSkin.Controls.MaterialButton();
+            MisVuelosButton = new MaterialSkin.Controls.MaterialButton();
             SuspendLayout();
             // 
             // materialButton1
@@ -39,8 +40,8 @@
             materialButton1.Depth = 0;
             materialButton1.HighEmphasis = true;
             materialButton1.Icon = null;
-            materialButton1.Location = new Point(704, 25);
-            materialButton1.Margin = new Padding(3, 5, 3, 5);
+            materialButton1.Location = new Point(496, 22);
+            materialButton1.Margin = new Padding(3, 4, 3, 4);
             materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
             materialButton1.Name = "materialButton1";
             materialButton1.NoAccentTextColor = Color.Empty;
@@ -59,12 +60,12 @@
             equipajeButton.Depth = 0;
             equipajeButton.HighEmphasis = true;
             equipajeButton.Icon = null;
-            equipajeButton.Location = new Point(596, 25);
-            equipajeButton.Margin = new Padding(3, 5, 3, 5);
+            equipajeButton.Location = new Point(402, 22);
+            equipajeButton.Margin = new Padding(3, 4, 3, 4);
             equipajeButton.MouseState = MaterialSkin.MouseState.HOVER;
             equipajeButton.Name = "equipajeButton";
             equipajeButton.NoAccentTextColor = Color.Empty;
-            equipajeButton.Size = new Size(91, 36);
+            equipajeButton.Size = new Size(90, 36);
             equipajeButton.TabIndex = 16;
             equipajeButton.Text = "Equipaje";
             equipajeButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -72,16 +73,38 @@
             equipajeButton.UseVisualStyleBackColor = true;
             equipajeButton.Click += equipajeButton_Click;
             // 
+            // MisVuelosButton
+            // 
+            MisVuelosButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            MisVuelosButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            MisVuelosButton.Depth = 0;
+            MisVuelosButton.HighEmphasis = true;
+            MisVuelosButton.Icon = null;
+            MisVuelosButton.Location = new Point(593, 22);
+            MisVuelosButton.Margin = new Padding(3, 4, 3, 4);
+            MisVuelosButton.MouseState = MaterialSkin.MouseState.HOVER;
+            MisVuelosButton.Name = "MisVuelosButton";
+            MisVuelosButton.NoAccentTextColor = Color.Empty;
+            MisVuelosButton.Size = new Size(91, 36);
+            MisVuelosButton.TabIndex = 17;
+            MisVuelosButton.Text = "Mis Vuelos";
+            MisVuelosButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            MisVuelosButton.UseAccentColor = false;
+            MisVuelosButton.UseVisualStyleBackColor = true;
+            MisVuelosButton.Click += MisVuelosButton_Click;
+            // 
             // Home
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(700, 338);
+            Controls.Add(MisVuelosButton);
             Controls.Add(equipajeButton);
             Controls.Add(materialButton1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Home";
-            Padding = new Padding(2, 51, 2, 2);
+            Padding = new Padding(2, 38, 2, 2);
             Text = "Vuelos";
             ResumeLayout(false);
             PerformLayout();
@@ -90,5 +113,6 @@
         #endregion
         private MaterialSkin.Controls.MaterialButton materialButton1;
         private MaterialSkin.Controls.MaterialButton equipajeButton;
+        private MaterialSkin.Controls.MaterialButton MisVuelosButton;
     }
 }

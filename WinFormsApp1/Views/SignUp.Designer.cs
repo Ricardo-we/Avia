@@ -50,7 +50,7 @@
             signUpButton.HighEmphasis = true;
             signUpButton.Icon = null;
             signUpButton.Location = new Point(37, 298);
-            signUpButton.Margin = new Padding(4, 4, 4, 4);
+            signUpButton.Margin = new Padding(4);
             signUpButton.MouseState = MaterialSkin.MouseState.HOVER;
             signUpButton.Name = "signUpButton";
             signUpButton.NoAccentTextColor = Color.Empty;
@@ -71,7 +71,7 @@
             signUpBtn.HighEmphasis = true;
             signUpBtn.Icon = null;
             signUpBtn.Location = new Point(37, 340);
-            signUpBtn.Margin = new Padding(4, 4, 4, 4);
+            signUpBtn.Margin = new Padding(4);
             signUpBtn.MouseState = MaterialSkin.MouseState.HOVER;
             signUpBtn.Name = "signUpBtn";
             signUpBtn.NoAccentTextColor = Color.Empty;
@@ -198,7 +198,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
-            ClientSize = new Size(325, 389);
+            ClientSize = new Size(325, 399);
             Controls.Add(panel2);
             Controls.Add(age);
             Controls.Add(dpi);

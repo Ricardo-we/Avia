@@ -203,5 +203,10 @@ namespace AviaApp.Views
         {
             new EquipajeForm().Show();
         }
+
+        private void MisVuelosButton_Click(object sender, EventArgs e)
+        {
+            new MisVuelosForm().Show();
+        }
     }
 }

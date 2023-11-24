@@ -88,7 +88,7 @@
             loginButton.HighEmphasis = true;
             loginButton.Icon = null;
             loginButton.Location = new Point(44, 248);
-            loginButton.Margin = new Padding(4, 4, 4, 4);
+            loginButton.Margin = new Padding(4);
             loginButton.MouseState = MaterialSkin.MouseState.HOVER;
             loginButton.Name = "loginButton";
             loginButton.NoAccentTextColor = Color.Empty;
@@ -115,11 +115,11 @@
             signUpButton.HighEmphasis = true;
             signUpButton.Icon = null;
             signUpButton.Location = new Point(44, 203);
-            signUpButton.Margin = new Padding(4, 4, 4, 4);
+            signUpButton.Margin = new Padding(4);
             signUpButton.MouseState = MaterialSkin.MouseState.HOVER;
             signUpButton.Name = "signUpButton";
             signUpButton.NoAccentTextColor = Color.Empty;
-            signUpButton.Size = new Size(240, 27);
+            signUpButton.Size = new Size(240, 37);
             signUpButton.TabIndex = 4;
             signUpButton.Text = "¿No tienes cuenta? ¡Registrate!";
             signUpButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Text;
