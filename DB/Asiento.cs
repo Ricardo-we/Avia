@@ -17,7 +17,7 @@ namespace DB
         public int Numero { get; set; }
         public string Clase { get; set; }
         public bool Reservado { get; set; }
-
+        public User user { get; set; }
         public Vuelo Vuelo { get; set; }
 
         public Asiento(int numero, string clase, bool reservado, Vuelo vuelo)
