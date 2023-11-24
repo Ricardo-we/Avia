@@ -45,7 +45,8 @@ namespace WinFormsApp1
                 }
 
                 new Home().Show();
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("El usuario ingresado no existe o algún dato es inválido");
             }

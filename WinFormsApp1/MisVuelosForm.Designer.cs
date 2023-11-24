@@ -32,6 +32,7 @@
             pictureBox4 = new PictureBox();
             label2 = new Label();
             materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            materialListBox1 = new MaterialSkin.Controls.MaterialListBox();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             SuspendLayout();
@@ -83,11 +84,26 @@
             materialLabel1.TabIndex = 90;
             materialLabel1.Text = "Mi Listado de Vuelos";
             // 
+            // materialListBox1
+            // 
+            materialListBox1.BackColor = Color.White;
+            materialListBox1.BorderColor = Color.LightGray;
+            materialListBox1.Depth = 0;
+            materialListBox1.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialListBox1.Location = new Point(21, 113);
+            materialListBox1.MouseState = MaterialSkin.MouseState.HOVER;
+            materialListBox1.Name = "materialListBox1";
+            materialListBox1.SelectedIndex = -1;
+            materialListBox1.SelectedItem = null;
+            materialListBox1.Size = new Size(749, 325);
+            materialListBox1.TabIndex = 91;
+            // 
             // MisVuelosForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(materialListBox1);
             Controls.Add(materialLabel1);
             Controls.Add(panel2);
             Name = "MisVuelosForm";
@@ -104,5 +120,6 @@
         private PictureBox pictureBox4;
         private Label label2;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
+        private MaterialSkin.Controls.MaterialListBox materialListBox1;
     }
 }

@@ -17,6 +17,7 @@ namespace DB
         public int id { get; set; }
         public User user { get; set; }
         public Vuelo Vuelo { get; set; }
+        public Asiento Asiento { get; set; }
 
     }
 }
