@@ -85,7 +85,9 @@ namespace AviaApp
 
         private void AgregarAsientosIniciales()
         {
-            for (int numeroAsiento = 1; numeroAsiento <= 25; numeroAsiento++)
+            if (dbContext.Asientos.Where((asiento) => asiento.VueloId == _vuelo.id).ToList().Count() > 0) return;
+
+            for (int numeroAsiento = 1; numeroAsiento <= 125; numeroAsiento++)
             {
                 var existeAsiento = dbContext.Asientos.Any(a => a.Numero == numeroAsiento);
 
