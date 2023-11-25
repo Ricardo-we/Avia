@@ -39,7 +39,8 @@ namespace AviaApp
 
         private void CargarLabels()
         {
-            var asientos = _dbContext.Asientos.ToList();
+            var asientos = _dbContext.Asientos.Where((asiento) => asiento.Vuelo.id == _vuelo.id);
+
             foreach (var asiento in asientos)
             {
                 var label = Controls.Find("label" + asiento.Numero, true).FirstOrDefault() as Label;
@@ -61,20 +62,11 @@ namespace AviaApp
 
         private void CargarComboBoxAsientos(int inicio, int fin)
         {
-            /*var asientosFiltrados = dbContext.Asientos.Where(a => a.Numero >= inicio && a.Numero <= fin).OrderBy(a => a.Numero).ToList();
-
-            // Ordenar la lista de asientos por número nuevamente (asegurándonos)
-            asientosFiltrados = asientosFiltrados.OrderBy(a => a.Numero).ToList();
-
-
-            comboBox1.DataSource = dbContext.Asientos.ToList();
-            comboBox1.DisplayMember = "Numero";
-            comboBox1.ValueMember = "Id";*/
-            // Filtrar los asientos en el rango especificado y ordenar por número
+    
             var asientosFiltrados = dbContext.Asientos
-        .Where(a => a.Numero >= inicio && a.Numero <= fin)
-        .OrderBy(a => a.Numero)
-        .ToList();
+                .Where(a => a.Numero >= inicio && a.Numero <= fin && a.VueloId == _vuelo.id)
+                .OrderBy(a => a.Numero)
+                .ToList();
 
 
             comboBox1.DataSource = null;
@@ -99,7 +91,13 @@ namespace AviaApp
 
                 if (!existeAsiento)
                 {
-                    dbContext.Asientos.Add(new Asiento { Numero = numeroAsiento, Clase = "VIP", Reservado = false });
+                    dbContext.Asientos.Add(new Asiento { 
+                        Numero = numeroAsiento, 
+                        Clase = "VIP", 
+                        Reservado = false,
+                        Vuelo = _vuelo,
+                        user = SharedData.user,
+                    });
                 }
             }
 
@@ -108,12 +106,10 @@ namespace AviaApp
 
         private void CargarComboBoxAsientos()
         {
-            comboBox1.DataSource = dbContext.Asientos.ToList();
+            comboBox1.DataSource = dbContext.Asientos.Where((asiento) => asiento.VueloId == _vuelo.id).ToList();
             comboBox1.DisplayMember = "Numero";
             comboBox1.ValueMember = "Id";
         }
-
-
 
 
         private void HabilitarAsientos()
@@ -168,10 +164,6 @@ namespace AviaApp
             if (materialRadioButton2.Checked)
             {
                 pictureBox2.Image = AviaApp.Properties.Resources.clase_turista;
-                /* rangoInicio = 66;
-                 rangoFin = 125;
-                 HabilitarAsientos();*/
-
             }
         }
 
@@ -182,6 +174,7 @@ namespace AviaApp
             if (selectedAsiento != null)
             {
                 selectedAsiento.Reservado = true;
+                selectedAsiento.UserId = SharedData.user.id;
                 dbContext.SaveChanges();
 
                 MessageBox.Show($"Asiento {selectedAsiento.Numero} reservado con éxito.", "Asiento Reservado", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -196,20 +189,21 @@ namespace AviaApp
         }
 
         private void AgregarAsientos()
-        {/*
+        {
             for (int i = 1; i <= 25; i++)
             {
                 var nuevoAsiento = new Asiento
                 {
                     Numero = i,
                     Clase = "VIP",
-                    Reservado = false
+                    Reservado = false,
+                    VueloId = _vuelo.id,
                 };
 
                 _dbContext.Asientos.Add(nuevoAsiento);
             }
 
-            _dbContext.SaveChanges();*/
+            _dbContext.SaveChanges();
         }
 
         private void materialButton2_Click(object sender, EventArgs e)

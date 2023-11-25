@@ -121,7 +121,7 @@ namespace AviaApp.Views
                 return;
             }
 
-            foreach (var tarjeta in resultados)
+            foreach (var vuelo in resultados)
             {
                 DockStyle sharedDockStyle = DockStyle.Bottom;
 
@@ -139,22 +139,22 @@ namespace AviaApp.Views
                         },
                         new MaterialLabel
                         {
-                            Text = $"Precio: {tarjeta.Precio:C}",
+                            Text = $"Precio: {vuelo.Precio:C}",
                             Dock = sharedDockStyle,
                         },
                         new MaterialLabel
                         {
-                            Text = $"Hora de salida: {tarjeta.HoraSalida}",
+                            Text = $"Hora de salida: {vuelo.HoraSalida}",
                             Dock = sharedDockStyle
                         },
                         new MaterialLabel
                         {
-                            Text = $"Hora de llegada: {tarjeta.HoraLlegada}",
+                            Text = $"Hora de llegada: {vuelo.HoraLlegada}",
                             Dock = sharedDockStyle
                         },
                         new PictureBox
                         {
-                            ImageLocation = tarjeta.CiudadDestinoImg,
+                            ImageLocation = vuelo.CiudadDestinoImg,
                             SizeMode = PictureBoxSizeMode.StretchImage,
                             Dock = sharedDockStyle,
                             Width = 220,
@@ -170,8 +170,20 @@ namespace AviaApp.Views
                     Type = MaterialButton.MaterialButtonType.Outlined,
                 };
 
-                detailsButton.Click += async (sender, e) => await MostrarDetallesVuelo(tarjeta);
+                var reserveButton = new MaterialButton
+                {
+                    Dock = sharedDockStyle,
+                    Text = "Reservar",
+                    Type = MaterialButton.MaterialButtonType.Outlined,
+                };
+
+
+
+                detailsButton.Click += async (sender, e) => await MostrarDetallesVuelo(vuelo);
+                reserveButton.Click += (sender, e) => new FormAsientos(vuelo).Show();
+
                 materialCard.Controls.Add(detailsButton);
+                materialCard.Controls.Add(reserveButton);
 
                 panelTarjetas.Controls.Add(materialCard);
             }
@@ -193,11 +205,11 @@ namespace AviaApp.Views
             FormUtils.OnFormClosing(this);
         }
 
-        private void materialButton1_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
-            new FormAsientos().Show();
-        }
+        //private void materialButton1_Click(object sender, EventArgs e)
+        //{
+        //    this.Dispose();
+        //    new FormAsientos().Show();
+        //}
 
         private void equipajeButton_Click(object sender, EventArgs e)
         {
